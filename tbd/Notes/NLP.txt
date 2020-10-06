@@ -1,0 +1,54 @@
+ref - https://www.datacamp.com/community/tutorials/stemming-lemmatization-python
+
+NER (Named entity recognizer)------  Ner tagger tags the tokenized words
+. nltk.tag.stanford import StanfordNERTagger()
+local locations -
+jar = 'C:/Users/Aaditya/Anaconda_Ml/NLP/NER/stanford-ner-4.0.0/stanford-ner.jar'
+model = 'C:/Users/Aaditya/Anaconda_Ml/NLP/NER/stanford-ner-4.0.0/classifiers/english.muc.7class.distsim.crf.ser.gz'
+
+
+Stemming and lamatization------
+Lemmatization -> find a root word which have actual root. Lemmatization involves context.
+. wordnetLemmatizer()
+
+
+stemmming -> find a root word. does not require any context perticular word is stemmed (find a root word).
+. porter stemmer() (simple and fast)
+. lancaster stemmer() (LancasterStemmer is simple, but heavy stemming due to iterations and over-stemming may occur.
+	 Over-stemming causes the stems to be not linguistic, or they may have no meaning.)
+
+
+tokenizer --> tokenizer breaks a string into words.
+. word_tokenize(text) for splitting into words
+. sent_tokenize(text) for splitting string of paragraph into sentence.
+
+
+Stopwords --> stopwords are words which dont have any meaning in sentence like the, be, are etc.
+.nltk.stopwords()
+.spacy
+. gensim
+
+
+word_embedding --> word embadding is a technique used to covert words to vectors
+. gensin.models.Word2Vec() two layered neural network (1 input layer 1 hidden layer 1 output layer)
+two algorithms ==> 1) CBOW (continous bag of words)  2) skip bag 
+CBOW - it predicts the relative words from target word.
+skip bag - it predicts target word from relative words.
+
+
+POS Tagging --> converting sentence into words and label them. according to marcovs model.
+. nltk.tag.DefaultTagger('NN')
+
+
+cosine_similarities --> the similarities in direction of two vectors(features in vector form) is called cosine_similarities.
+
+========================================================================================================================================================================================================================================================================================
+
+process --  
+1) convert all words in lower case.
+2) remove stop words.
+3) stemming / lammitizer.
+4) apply to model.
+5) get result.
+
+A$k$5118

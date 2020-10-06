@@ -1,0 +1,253 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Two      2\n",
+       "Four     4\n",
+       "Six      6\n",
+       "Eight    8\n",
+       "dtype: int64"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "a = pd.Series([2,4,6,8], index=[\"Two\",\"Four\",\"Six\", \"Eight\"])\n",
+    "a"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>Unnamed: 0</th>\n",
+       "      <th>Name</th>\n",
+       "      <th>Class</th>\n",
+       "      <th>Hobbies</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>0</td>\n",
+       "      <td>Aaditya</td>\n",
+       "      <td>12</td>\n",
+       "      <td>Playing sports</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1</td>\n",
+       "      <td>Arpita</td>\n",
+       "      <td>11</td>\n",
+       "      <td>Classified</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>2</td>\n",
+       "      <td>Krishna</td>\n",
+       "      <td>10</td>\n",
+       "      <td>Weeping</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   Unnamed: 0     Name  Class         Hobbies\n",
+       "0           0  Aaditya     12  Playing sports\n",
+       "1           1   Arpita     11      Classified\n",
+       "2           2  Krishna     10         Weeping"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# Writing a dataframe file in csv\n",
+    "data = {\"Name\":[\"Aaditya\", \"Arpita\",\"Krishna\"], \"Class\" :[12,11,10],\n",
+    "        \"Hobbies\":[\"Playing sports\", \"Classified\", \"Weeping\"]}\n",
+    "df = pd.DataFrame(data, columns=[\"Name\", \"Class\", \"Hobbies\"])\n",
+    "df.to_csv(\"Panda_data.csv\")\n",
+    "\n",
+    "# Reading a csv file\n",
+    "pd.read_csv(\"Panda_data.csv\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 103,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Two      2\n",
+      "Four     4\n",
+      "Six      6\n",
+      "Eight    9\n",
+      "dtype: int64\n",
+      "<class 'pandas.core.frame.DataFrame'>\n",
+      "RangeIndex: 3 entries, 0 to 2\n",
+      "Data columns (total 3 columns):\n",
+      "Name       3 non-null object\n",
+      "Class      3 non-null int64\n",
+      "Hobbies    3 non-null object\n",
+      "dtypes: int64(1), object(2)\n",
+      "memory usage: 152.0+ bytes\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "Name       3\n",
+       "Class      3\n",
+       "Hobbies    3\n",
+       "dtype: int64"
+      ]
+     },
+     "execution_count": 103,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "b = pd.Series([2,4,6,8], index=[\"Two\",\"Four\",\"Six\", \"Eight\"])\n",
+    "\n",
+    "#b[\"Two\"]\n",
+    "#df.iloc[[1],[1]]\n",
+    "#df.loc[[1],[\"Class\"]]\n",
+    "#df.ix[1,\"Hobbies\"]\n",
+    "\n",
+    "# Setting index of \"Eight\" to 9\n",
+    "\n",
+    "b[\"Eight\"] = 9\n",
+    "print(b)\n",
+    "df.shape\n",
+    "df.index\n",
+    "df.columns\n",
+    "df.info()\n",
+    "df.count()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 56,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# df.shape\n",
+    "# df.index\n",
+    "# df.columns\n",
+    "# df.info()\n",
+    "# df.count()\n",
+    "\n",
+    "# df.sum()\n",
+    "# df.cumsum()\n",
+    "# df.min()\n",
+    "# df.max()\n",
+    "# df.idxmin()\n",
+    "# df.idxmax()\n",
+    "# df.describe()\n",
+    "# df.mean()\n",
+    "# df.median()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 104,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('Date', 0    01-07-2019\n",
+      "1    02-07-2019\n",
+      "2    03-07-2019\n",
+      "Name: Date, dtype: object)\n"
+     ]
+    }
+   ],
+   "source": [
+    "data = {\"Date\":[\"01-07-2019\", \"02-07-2019\", \"03-07-2019\"], \"Type\":['a','b','c'], \"Value\":[1,2,3]}\n",
+    "df2 = pd.DataFrame(data, columns=[\"Date\", \"Type\", \"Value\"])\n",
+    "#df3= df2.pivot(index='Date', columns='Type', values='Value')\n",
+    "row = next(df2.iteritems())\n",
+    "print(row)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
