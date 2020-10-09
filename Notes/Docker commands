@@ -1,0 +1,22 @@
+sudo systemctl status docker
+sudo systemctl start docker
+sudo systemctl stop docker
+sudo systemctl restart docker
+sudo docker images
+
+
+sudo docker run -it ubuntu bash  	# Run and enter into docker
+sudo docker ps -a   			# find all docker containers
+sudo docker rm 5690a40d6477		# delete container using container id
+sudo docker rmi bf756fb1ae65		# delete image using image id
+sudo docker tag <imagename> <username/repo_name>  # for tagging purpose
+sudo container stop e666c435db13      # stop running container
+
+
+# make Dockerfile in repo 
+sudo docker build --tag <my_tag_name>  .
+sudo docker run <my_tag_name>
+
+docker build --tag aadityamuleva/my_hello_image:v1.0.1 .
+docker push aadityamuleva/my_hello_image:v1.0.1
+
